@@ -2,6 +2,10 @@
 
 [Vercel Deployment](https://sample-site-chi.vercel.app/)
 
+## Usage
+
+To start app/site, simply visit the [Vercel Deployment](https://sample-site-chi.vercel.app/). To run on a local machine, type "npm run dev" in your console when in the root directory.
+
 ## User Story
 
 Replicate page from .psd files and add features to make it functional and responsive.
