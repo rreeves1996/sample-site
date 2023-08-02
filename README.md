@@ -1,5 +1,7 @@
 # Deployment
 
+[Vercel Deployment](https://sample-site-chi.vercel.app/)
+
 ## User Story
 
 Replicate page from .psd files and add features to make it functional and responsive.
