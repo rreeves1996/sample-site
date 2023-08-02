@@ -1,0 +1,402 @@
+@import './fonts';
+@import './variables';
+@import './mixins';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	line-height: 1;
+}
+html {
+	height: 100%;
+}
+ol,
+ul {
+	list-style: none;
+}
+h1,
+h2,
+h3 {
+	font-family: $textAccent;
+	font-weight: bold;
+}
+h4,
+h5,
+h6 {
+	font-family: $textBody;
+	font-weight: 700;
+}
+h1 {
+	font-size: 7rem;
+}
+h2 {
+	font-size: 6rem;
+}
+h3 {
+	font-size: 5rem;
+}
+h4 {
+	font-size: 4rem;
+}
+h5 {
+	font-size: 3rem;
+}
+h6 {
+	font-size: 2rem;
+}
+p {
+	font-family: $textBody;
+	font-size: 1rem;
+}
+body {
+	font-family: $textBody;
+}
+
+.nav-button {
+	margin: 1rem 2rem;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	font-family: 'Ganges Demi Bold Oblique';
+	font-weight: 900;
+	font-size: 1.5rem;
+	text-decoration: underline;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: $blueDarker;
+	transition: all 150ms;
+
+	&:hover {
+		color: #2f3b55;
+	}
+}
+
+// Logo isolated
+.logo {
+	@include flexCenter(row);
+	position: relative;
+	width: 60px;
+	height: 60px;
+	background-image: url('../images/logo.png');
+	background-repeat: no-repeat;
+}
+
+// Logo with text
+.company-logo {
+	@include flexRowAlign(center);
+
+	.logo {
+		@include flexCenter(row);
+		position: relative;
+		width: 60px;
+		height: 60px;
+		background-image: url('../images/logo.png');
+		background-repeat: no-repeat;
+	}
+
+	.logo-text {
+		@include flexColumnAlign(center);
+		font-family: 'Ganges Demi';
+		letter-spacing: 1px;
+
+		span {
+			line-height: 0.9;
+		}
+
+		.losangeles {
+			font-size: 1.4rem;
+		}
+		.mountains {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+.navbar {
+	@include flexRowJustify(space-between);
+	@include layoutPadding(75rem);
+	position: fixed;
+	z-index: 50;
+	align-items: center;
+	height: 4rem;
+	width: 100%;
+	background-color: $bluePrimary;
+
+	.company-logo {
+		cursor: pointer;
+		.logo-text {
+			.losangeles {
+				color: $accentColor;
+			}
+			.mountains {
+				color: $blueDarker;
+			}
+		}
+	}
+
+	p {
+		margin: 0;
+	}
+}
+
+// Conditionally rendered home nav
+.home-nav {
+	@include flexRowJustify(space-between);
+	@include layoutPadding(75rem);
+	position: absolute;
+	height: 4rem;
+	width: 100%;
+	align-items: center;
+
+	.links-container {
+		.nav-button {
+			color: $offWhite;
+			transition: all 150ms;
+
+			&:hover {
+				color: rgb(205, 219, 231);
+			}
+		}
+	}
+}
+
+main {
+	@include flexCenter(column);
+	background-color: $bluePrimary;
+	min-height: calc(100vh - 9rem);
+
+	.home-container {
+		@include layoutPadding(75rem);
+
+		height: calc(100vh - 4rem);
+		width: 100%;
+		background-image: url('../images/hero1.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		.home-body {
+		}
+	}
+
+	.history-container,
+	.climb-container {
+		height: calc(100vh - 4rem);
+		width: 100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.history-container {
+		@include layoutPadding(75rem);
+		min-height: 934px;
+		background-image: url('../images/hero2.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		header {
+			@include flexColumnJustify(center);
+			margin-top: 6rem;
+			width: 100%;
+			color: $blueDarker;
+
+			.header-accent-text {
+				@include flexRowAlign(center);
+				h1 {
+					opacity: 50%;
+					font-size: 12rem;
+					letter-spacing: 0.5rem;
+				}
+
+				h3 {
+					font-size: 2.5rem;
+					letter-spacing: 1px;
+					transform: translate(-2.2rem, 1.5rem);
+				}
+			}
+
+			p {
+				padding: 0 5rem;
+				color: black;
+				font-size: 1.3rem;
+				font-weight: 900;
+				letter-spacing: 2px;
+				line-height: 1.3;
+			}
+		}
+	}
+
+	.carousel-container {
+		@include flexCenter(column);
+		width: 100%;
+		height: 13rem;
+		background-image: url('../images/carousel.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		.carousel {
+			height: 90%;
+			width: 20rem;
+			.slick-slider {
+				width: 100%;
+				height: 100%;
+				.slide-1 {
+					position: relative;
+					width: 100%;
+					min-height: 15rem;
+					background-image: url('../images/carouselpicture1.jpg');
+					background-repeat: no-repeat;
+					background-size: contain;
+				}
+
+				.slide-2 {
+					width: 100%;
+					min-height: 15rem;
+
+					background-image: url('../images/carouselpicture2.jpg');
+					background-repeat: no-repeat;
+					background-size: contain;
+				}
+			}
+		}
+	}
+
+	.climb-container {
+		header {
+			@include flexRowAlign(center);
+			@include layoutPadding(75rem);
+			height: 13rem;
+			color: $blueDarker;
+
+			.header-accent-text {
+				@include flexRowAlign(center);
+				h1 {
+					opacity: 50%;
+					font-size: 12rem;
+					letter-spacing: 0.5rem;
+				}
+
+				h3 {
+					font-size: 2.5rem;
+					letter-spacing: 1px;
+					transform: translate(-2.2rem, 1.5rem);
+				}
+			}
+			p {
+				color: black;
+				font-size: 1.3rem;
+				font-weight: 900;
+				letter-spacing: 2px;
+				line-height: 1.3;
+			}
+		}
+
+		nav {
+			@include layoutPadding(75rem);
+			z-index: 0 !important;
+			background-color: $blueDarker;
+			height: 3rem;
+			width: 100%;
+
+			button {
+				position: relative;
+				z-index: 50;
+				padding: 1rem 1.5rem 2rem 1.5rem;
+				transform: translateY(-1rem);
+				margin: 0;
+				cursor: pointer;
+				background-color: transparent;
+				border: none;
+				font-family: 'Ganges Demi';
+				font-weight: 900;
+				font-size: 2rem;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				text-underline-offset: 4px;
+				text-decoration-thickness: 2px !important;
+				color: $grey;
+
+				&:hover {
+					color: $offWhite;
+				}
+			}
+		}
+
+		.climb-body {
+			overflow-x: hidden;
+			position: relative;
+			z-index: 0 !important;
+			min-height: calc(100vh - 16rem);
+			height: 30rem;
+			width: 100%;
+
+			.mountain {
+				@include layoutPadding(75rem);
+				position: absolute;
+				z-index: 0 !important;
+				height: 100%;
+				width: 100%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				transition: all 200ms ease-in-out;
+
+				.schedule {
+					@include flexColumnJustify(start);
+					margin: 7rem 2rem;
+					padding: 1rem 3rem;
+					width: min-content;
+					background-color: rgba(250, 250, 250, 0.466);
+
+					h3 {
+						font-size: 3rem;
+						letter-spacing: 2px;
+						margin-bottom: 1rem;
+						color: $blueDark;
+					}
+					.schedule-item {
+						@include flexRowJustify(space-between);
+						align-items: center;
+						width: 18rem;
+						height: 1.5rem;
+						font-family: 'Gram';
+						font-weight: 900;
+						font-size: 1.2rem;
+						letter-spacing: 2px;
+					}
+				}
+			}
+
+			.mountain-1 {
+				background-image: url('../images/tab1.jpg');
+			}
+
+			.mountain-2 {
+				background-image: url('../images/tab2.jpg');
+			}
+		}
+	}
+}
+
+footer {
+	@include layoutPadding(75rem);
+	@include flexRowJustify(space-between);
+	align-items: center;
+	position: relative;
+	width: 100%;
+	height: 4rem;
+	background-color: $blueDarkest;
+	color: $blueDark;
+
+	p {
+		font-family: 'Ganges Demi Bold Oblique';
+		font-weight: 900;
+		font-size: 1.2rem;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+	.company-logo {
+		.logo {
+			opacity: 35%;
+		}
+	}
+}
