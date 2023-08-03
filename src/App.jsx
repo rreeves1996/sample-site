@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import Hero from './Hero';
-import SiteContent from './SiteContent';
+import History from './History';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './assets/style/style.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Team from './Team';
 
 function App() {
 	const [currentPage, setCurrentPage] = useState('HERO');
@@ -15,8 +16,10 @@ function App() {
 		switch (currentPage) {
 			case 'HERO':
 				return <Hero />;
-			case 'SITECONTENT':
-				return <SiteContent />;
+			case 'HISTORY':
+				return <History />;
+			case 'TEAM':
+				return <Team />;
 		}
 	};
 

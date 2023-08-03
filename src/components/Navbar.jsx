@@ -9,14 +9,16 @@ export default function Navbar({ currentPage, setCurrentPage }) {
 				<div className='links-container'>
 					<button
 						className='nav-button'
-						onClick={() => setCurrentPage('SITECONTENT')}>
+						onClick={() => setCurrentPage('HISTORY')}>
 						01. History
 					</button>
-					<button className='nav-button'>02. Team</button>
+					<button className='nav-button' onClick={() => setCurrentPage('TEAM')}>
+						02. Team
+					</button>
 				</div>
 			</nav>
 		);
-	} else if (currentPage === 'SITECONTENT') {
+	} else {
 		return (
 			<nav className='navbar'>
 				<div className='company-logo' onClick={() => setCurrentPage('HERO')}>
@@ -27,10 +29,14 @@ export default function Navbar({ currentPage, setCurrentPage }) {
 					</div>
 				</div>
 				<div className='links-container'>
-					<button className='nav-button' onClick={() => setCurrentPage('HERO')}>
+					<button
+						className='nav-button'
+						onClick={() => setCurrentPage('HISTORY')}>
 						01. History
 					</button>
-					<button className='nav-button'>02. Team</button>
+					<button className='nav-button' onClick={() => setCurrentPage('TEAM')}>
+						02. Team
+					</button>
 				</div>
 			</nav>
 		);
