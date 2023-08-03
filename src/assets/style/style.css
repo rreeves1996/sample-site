@@ -316,49 +316,6 @@ body {
   font-size: 1.5rem;
 }
 
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0.5rem calc((100vw - 75rem) / 2);
-  position: fixed;
-  z-index: 50;
-  align-items: center;
-  height: 4rem;
-  width: 100%;
-  background-color: #61759e;
-}
-.navbar .company-logo {
-  cursor: pointer;
-}
-.navbar .company-logo .logo-text .losangeles {
-  color: #4d4d4d;
-}
-.navbar .company-logo .logo-text .mountains {
-  color: #404f6c;
-}
-.navbar p {
-  margin: 0;
-}
-
-.home-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0.5rem calc((100vw - 75rem) / 2);
-  position: absolute;
-  height: 4rem;
-  width: 100%;
-  align-items: center;
-}
-.home-nav .links-container .nav-button {
-  color: aliceblue;
-  transition: all 150ms;
-}
-.home-nav .links-container .nav-button:hover {
-  color: rgb(205, 219, 231);
-}
-
 main {
   display: flex;
   justify-content: center;
@@ -367,9 +324,52 @@ main {
   background-color: #61759e;
   min-height: calc(100vh - 9rem);
 }
+main .navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem calc((100vw - 75rem) / 2);
+  z-index: 100;
+  align-items: center;
+  height: 4rem;
+  width: 100%;
+  top: 100vh;
+  background-color: #61759e;
+}
+main .navbar .company-logo {
+  cursor: pointer;
+}
+main .navbar .company-logo .logo-text .losangeles {
+  color: #4d4d4d;
+}
+main .navbar .company-logo .logo-text .mountains {
+  color: #404f6c;
+}
+main .navbar p {
+  margin: 0;
+}
+main .home-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem calc((100vw - 75rem) / 2);
+  position: absolute;
+  top: 0;
+  height: 4rem;
+  width: 100%;
+  align-items: center;
+}
+main .home-nav .links-container .nav-button {
+  color: aliceblue;
+  transition: all 150ms;
+}
+main .home-nav .links-container .nav-button:hover {
+  color: rgb(205, 219, 231);
+}
 main .home-container {
   padding: 0.5rem calc((100vw - 75rem) / 2);
-  height: calc(100vh - 4rem);
+  height: 100vh;
+  min-height: 1000px;
   width: 100%;
   background-image: url("../images/hero1.jpg");
   background-repeat: no-repeat;
@@ -377,13 +377,14 @@ main .home-container {
 }
 main .history-container,
 main .climb-container {
-  height: calc(100vh - 4rem);
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
 }
 main .history-container {
   padding: 0.5rem calc((100vw - 75rem) / 2);
+  height: calc(100vh - 4rem);
+  margin-top: 4rem;
   min-height: 934px;
   background-image: url("../images/hero2.jpg");
   background-repeat: no-repeat;
@@ -460,14 +461,15 @@ main .carousel-container .carousel .slick-slider .slide-2 {
   background-size: cover;
 }
 main .climb-container {
-  margin-top: 4rem;
+  height: 100vh;
 }
 main .climb-container header {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0.5rem calc((100vw - 75rem) / 2);
-  height: 13rem;
+  padding-top: 2rem;
+  height: 15rem;
   color: #404f6c;
 }
 main .climb-container header .header-accent-text {
@@ -524,7 +526,7 @@ main .climb-container .climb-body {
   overflow-x: hidden;
   position: relative;
   z-index: 0 !important;
-  min-height: calc(100vh - 16rem);
+  min-height: calc(100vh - 14rem);
   height: 30rem;
   width: 100%;
 }

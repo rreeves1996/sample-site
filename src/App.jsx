@@ -1,32 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Hero from './Hero';
 import History from './History';
+import Team from './Team';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './assets/style/style.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Team from './Team';
 
 function App() {
-	const [currentPage, setCurrentPage] = useState('HERO');
+	const [windowPosition, setWindowPosition] = useState(0);
 
-	console.log(currentPage);
-	const renderPage = () => {
-		switch (currentPage) {
-			case 'HERO':
-				return <Hero />;
-			case 'HISTORY':
-				return <History />;
-			case 'TEAM':
-				return <Team />;
-		}
-	};
+	useEffect(() => {
+		const getWindowPosition = () => {
+			const windowPos = window.scrollY;
+			setWindowPosition(windowPos);
+		};
+
+		window.addEventListener('scroll', getWindowPosition);
+
+		return () => {
+			window.removeEventListener('scroll', getWindowPosition);
+		};
+	}, []);
 
 	return (
 		<>
-			<Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-			<main>{renderPage(currentPage)}</main>
+			<main>
+				<Hero />
+				<Navbar windowPosition={windowPosition} />
+				<History />
+				<Team />
+			</main>
 			<Footer />
 		</>
 	);

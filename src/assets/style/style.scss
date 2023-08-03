@@ -113,75 +113,72 @@ body {
 	}
 }
 
-.navbar {
-	@include flexRowJustify(space-between);
-	@include layoutPadding(75rem);
-	position: fixed;
-	z-index: 50;
-	align-items: center;
-	height: 4rem;
-	width: 100%;
-	background-color: $bluePrimary;
-
-	.company-logo {
-		cursor: pointer;
-		.logo-text {
-			.losangeles {
-				color: $accentColor;
-			}
-			.mountains {
-				color: $blueDarker;
-			}
-		}
-	}
-
-	p {
-		margin: 0;
-	}
-}
-
-// Conditionally rendered home nav
-.home-nav {
-	@include flexRowJustify(space-between);
-	@include layoutPadding(75rem);
-	position: absolute;
-	height: 4rem;
-	width: 100%;
-	align-items: center;
-
-	.links-container {
-		.nav-button {
-			color: $offWhite;
-			transition: all 150ms;
-
-			&:hover {
-				color: rgb(205, 219, 231);
-			}
-		}
-	}
-}
-
 main {
 	@include flexCenter(column);
 	background-color: $bluePrimary;
 	min-height: calc(100vh - 9rem);
 
+	.navbar {
+		@include flexRowJustify(space-between);
+		@include layoutPadding(75rem);
+		z-index: 100;
+		align-items: center;
+		height: 4rem;
+		width: 100%;
+		top: 100vh;
+		background-color: $bluePrimary;
+
+		.company-logo {
+			cursor: pointer;
+			.logo-text {
+				.losangeles {
+					color: $accentColor;
+				}
+				.mountains {
+					color: $blueDarker;
+				}
+			}
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+
+	// Conditionally rendered home nav
+	.home-nav {
+		@include flexRowJustify(space-between);
+		@include layoutPadding(75rem);
+		position: absolute;
+		top: 0;
+		height: 4rem;
+		width: 100%;
+		align-items: center;
+
+		.links-container {
+			.nav-button {
+				color: $offWhite;
+				transition: all 150ms;
+
+				&:hover {
+					color: rgb(205, 219, 231);
+				}
+			}
+		}
+	}
+
 	.home-container {
 		@include layoutPadding(75rem);
-
-		height: calc(100vh - 4rem);
+		height: 100vh;
+		min-height: 1000px;
 		width: 100%;
 		background-image: url('../images/hero1.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
-
-		.home-body {
-		}
 	}
 
 	.history-container,
 	.climb-container {
-		height: calc(100vh - 4rem);
 		width: 100%;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -189,6 +186,8 @@ main {
 
 	.history-container {
 		@include layoutPadding(75rem);
+		height: calc(100vh - 4rem);
+		margin-top: 4rem;
 		min-height: 934px;
 		background-image: url('../images/hero2.jpg');
 		background-repeat: no-repeat;
@@ -265,15 +264,19 @@ main {
 	}
 
 	.climb-container {
-		margin-top: 4rem;
+		height: calc(100vh);
+
 		header {
 			@include flexRowAlign(center);
 			@include layoutPadding(75rem);
-			height: 13rem;
+
+			padding-top: 2rem;
+			height: 15rem;
 			color: $blueDarker;
 
 			.header-accent-text {
 				@include flexRowAlign(center);
+
 				h1 {
 					opacity: 50%;
 					font-size: 12rem;
@@ -330,7 +333,7 @@ main {
 			overflow-x: hidden;
 			position: relative;
 			z-index: 0 !important;
-			min-height: calc(100vh - 16rem);
+			min-height: calc(100vh - 14rem);
 			height: 30rem;
 			width: 100%;
 
